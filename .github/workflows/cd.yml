@@ -33,7 +33,7 @@ jobs:
           allow-no-subscriptions: true
 
       - name: Login to M365
-        run: teamsapp auth login m365 --service-principal --username ${{ vars.MSFT_SERVICE_PRINCIPAL_CLIENT_ID }} --password ${{ secrets.MSFT_SERVICE_PRINCIPAL_CLIENT_SECRET }} --tenant ${{ vars.MSFT_TENANT_ID }}
+        run: teamsapp auth login m365 --tenant ${{ vars.MSFT_TENANT_ID }}
           
       - name: Create Teams App
         env:
