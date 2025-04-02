@@ -34,7 +34,7 @@ jobs:
           
       - name: Create Teams App
         run: |
-          teamsapp new --interactive true --app-name "TeamsAppBot_Reg1" --capability "bot" --programming-language "csharp"
+          teamsapp new --interactive false --app-name "TeamsAppBot_Reg1" --capability "bot" --programming-language "csharp"
           cd TeamsAppBot_Reg1
           teamsapp provision --env dev
           echo "TEAMS_APP_CREATED=true" >> $GITHUB_ENV
