@@ -24,7 +24,7 @@ jobs:
           node-version: '16'
           
       - name: Install Teams Toolkit CLI
-        run: npm install @microsoft/teamsapp-cli@3.0.7
+        run: npm install _g @microsoft/teamsapp-cli
         
       - name: Azure Login
         uses: azure/login@v2
@@ -32,9 +32,9 @@ jobs:
           creds: '{"clientId":"${{ vars.MSFT_SERVICE_PRINCIPAL_CLIENT_ID }}","clientSecret":"${{ secrets.MSFT_SERVICE_PRINCIPAL_CLIENT_SECRET }}","tenantId":"${{ vars.MSFT_TENANT_ID }}"}'
           allow-no-subscriptions: true
           
-    #  - name: Create Teams App
-     #   run: |
-      #    teamsapp new --interactive false --app-name "TeamsToolkitApp" --capabilities bot --programming-language csharp
-       #   cd TeamsToolkitApp
-        #  teamsapp provision --env dev
-         # echo "TEAMS_APP_CREATED=true" >> $GITHUB_ENV
+      - name: Create Teams App
+        run: |
+          teamsapp new --interactive false --app-name "TeamsAppBot_Reg1" --capabilities bot --programming-language csharp
+          cd TeamsAppBot_Reg1
+          teamsapp provision --env dev
+          echo "TEAMS_APP_CREATED=true" >> $GITHUB_ENV
