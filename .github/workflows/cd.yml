@@ -1,0 +1,36 @@
+name: Complete App Registration Process
+
+on:
+  workflow_dispatch:
+    inputs:
+      secondAppName:
+        description: 'Name for the second app registration'
+        required: true
+        default: 'MySecondAppRegistration'
+
+jobs:
+  create-teams-toolkit-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install Teams Toolkit CLI
+        run: npm install -g @microsoft/teamsapp-cli
+        
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ vars.MSFT_SERVICE_PRINCIPAL_CLIENT_ID }}","clientSecret":"${{ secrets.MSFT_SERVICE_PRINCIPAL_CLIENT_SECRET }}","tenantId":"${{ vars.MSFT_TENANT_ID }}"}'
+          
+    #  - name: Create Teams App
+     #   run: |
+      #    teamsapp new --interactive false --app-name "TeamsToolkitApp" --capabilities bot --programming-language csharp
+       #   cd TeamsToolkitApp
+        #  teamsapp provision --env dev
+         # echo "TEAMS_APP_CREATED=true" >> $GITHUB_ENV
