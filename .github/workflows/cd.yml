@@ -24,7 +24,7 @@ jobs:
           node-version: '16'
           
       - name: Install Teams Toolkit CLI
-        run: npm install _g @microsoft/teamsapp-cli
+        run: npm install -g @microsoft/teamsapp-cli
         
       - name: Azure Login
         uses: azure/login@v2
