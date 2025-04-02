@@ -30,6 +30,7 @@ jobs:
         uses: azure/login@v2
         with:
           creds: '{"clientId":"${{ vars.MSFT_SERVICE_PRINCIPAL_CLIENT_ID }}","clientSecret":"${{ secrets.MSFT_SERVICE_PRINCIPAL_CLIENT_SECRET }}","tenantId":"${{ vars.MSFT_TENANT_ID }}"}'
+          args: --allow-no-subscriptions
           
     #  - name: Create Teams App
      #   run: |
