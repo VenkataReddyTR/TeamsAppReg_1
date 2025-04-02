@@ -1,12 +1,15 @@
 name: Complete App Registration Process
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
-    inputs:
-      secondAppName:
-        description: 'Name for the second app registration'
-        required: true
-        default: 'MySecondAppRegistration'
+    # inputs:
+      # secondAppName:
+        # description: 'Name for the second app registration'
+        # required: true
+        # default: 'MySecondAppRegistration'
 
 jobs:
   create-teams-toolkit-app:
