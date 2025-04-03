@@ -29,7 +29,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          secrets: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # - name: Login to M365
         # run: teamsapp auth login m365 --tenant ${{ vars.MSFT_TENANT_ID }}
