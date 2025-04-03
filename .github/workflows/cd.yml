@@ -27,13 +27,12 @@ jobs:
         run: npm install -g @microsoft/teamsapp-cli
         
       - name: Azure Login
-        uses: azure/login@v2
+        uses: azure/login@v1
         with:
-          creds: '{"clientId":"${{ vars.MSFT_SERVICE_PRINCIPAL_CLIENT_ID }}","clientSecret":"${{ secrets.MSFT_SERVICE_PRINCIPAL_CLIENT_SECRET }}","tenantId":"${{ vars.MSFT_TENANT_ID }}"}'
-          allow-no-subscriptions: true
+          secrets: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Login to M365
-        run: teamsapp auth login m365 --tenant ${{ vars.MSFT_TENANT_ID }}
+      # - name: Login to M365
+        # run: teamsapp auth login m365 --tenant ${{ vars.MSFT_TENANT_ID }}
           
       - name: Create Teams App
         env:
